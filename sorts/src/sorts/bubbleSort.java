@@ -28,9 +28,13 @@ public class bubbleSort {
 
     public void sorted(){
 
-        for (int i=0; i<this.defaultData.length-1; i++) {
-            System.out.print(this.defaultData[i]);
-            System.out.print(" ");
+        // print initial data
+        System.out.println("Initial data: \n");
+
+        for(int i=0; i<this.defaultData.length-1; i++){
+
+            System.out.print(String.valueOf(this.defaultData[i]) + " ");
+
         }
 
         // start profiling for an algorithm of bubble sorting
@@ -80,15 +84,17 @@ public class bubbleSort {
 
         long end = System.nanoTime();
 
-        System.out.println("\n\nBubble sorting algorothm execution time: " + String.format("%.3f", Float.valueOf(end-start)/1000000) + " ms.");
 
         // end profiling for an algorithm of bubble sorting
 
-        System.out.println("\nSorted data: ");
+        // print sorted data
+        System.out.println("\nSorted data: \n");
         for (int i=0; i<this.defaultData.length-1; i++) {
-            System.out.print(this.defaultData[i]);
-            System.out.print(" ");
+            System.out.print(String.valueOf(this.defaultData[i]) + " ");
         }
+
+        System.out.println("\n\nBubble sorting algorothm execution time: " + String.format("%.3f", Float.valueOf(end-start)/1000000) + " ms.");
+
     }
 
 }

@@ -3,60 +3,133 @@ package sorts;
 public class coctailSort {
 
     private int defaultData[];
+    private boolean way;
 
     public coctailSort(){
+        this.way = false;
         this.defaultData = new int[]{3, 34, 76, 3458, 21, 1, 348957, 4345, 456, 9435, 356, 6346};
     }
 
     public coctailSort(int data[]){
+        this.way = false;
         this.defaultData = data;
     }
 
-    private void sorted(){
+    public void sorted(){
 
+        // print initial data
+        System.out.println("Initial data: \n");
+
+        for(int i=0; i<this.defaultData.length-1; i++){
+
+            System.out.print(String.valueOf(this.defaultData[i]) + " ");
+
+        }
+
+        long start = System.nanoTime();
 
         int count = 0;
 
         int iMin = count;
         int iMax = this.defaultData.length - 1;
 
-        while(iMin <= iMax){
+        if (!this.way) {
 
-            if (count % 2 == 0) {
+            while (iMin <= iMax) {
 
-                for (int i = iMin; i < iMax; i++) {
+                if (count % 2 == 0) {
 
-                    if (this.defaultData[i] > this.defaultData[i+1]){
+                    for (int i = iMin; i < iMax; i++) {
 
-                        int temp = this.defaultData[i];
-                        this.defaultData[i] = this.defaultData[i+1];
-                        this.defaultData[i+1] = temp;
+                        if (this.defaultData[i] > this.defaultData[i + 1]) {
 
-                    }
-                }
+                            int temp = this.defaultData[i];
+                            this.defaultData[i] = this.defaultData[i + 1];
+                            this.defaultData[i + 1] = temp;
 
-            } else if (count % 2 != 0){
-
-                for(int i = iMax; i > iMin; i--){
-
-                    if (this.defaultData[i] < this.defaultData[i+1]) {
-
-                        int temp = this.defaultData[i];
-                        defaultData[i] = defaultData[i+1];
-                        defaultData[i+1] = temp;
-
+                        }
                     }
 
+                    iMax--;
+
+                } else if (count % 2 != 0) {
+
+                    for (int i = iMax; i > iMin; i--) {
+
+                        if (this.defaultData[i] < this.defaultData[i - 1]) {
+
+                            int temp = this.defaultData[i];
+                            this.defaultData[i] = this.defaultData[i - 1];
+                            this.defaultData[i - 1] = temp;
+
+                        }
+
+                    }
+
+                    iMin++;
+
                 }
+
+                count++;
 
             }
 
-            count++;
+        } else if (this.way) {
+
+            while (iMin <= iMax){
+
+                if (count % 2 == 0){
+
+                    for(int i=iMin; i<iMax; i++){
+
+                        if (this.defaultData[i] < this.defaultData[i+1]){
+
+                            int temp = this.defaultData[i];
+                            this.defaultData[i] = this.defaultData[i+1];
+                            this.defaultData[i+1] = temp;
+
+                        }
+
+                    }
+
+                    iMax--;
+
+                } else if (count % 2 != 0){
+
+                    for(int i=iMax; i>iMin; i--){
+
+                        if (this.defaultData[i] > this.defaultData[i-1]){
+
+                            int temp = this.defaultData[i];
+                            this.defaultData[i] = this.defaultData[i-1];
+                            this.defaultData[i-1] = temp;
+
+                        }
+
+                    }
+
+                    iMin++;
+
+                }
+
+                count ++;
+
+            }
 
         }
 
-        System.out.println("");
-        System.out.println("Sorted data");
+        long end = System.nanoTime();
+
+        // print sorted data
+        System.out.println("\nSorted data: \n");
+
+        for(int i=0; i<this.defaultData.length-1; i++){
+
+            System.out.print(String.valueOf(this.defaultData[i]) + " ");
+
+        }
+
+        System.out.println("\n\nCoctail sorting algorothm execution time: " + String.format("%.3f", Float.valueOf(end-start)/1000000) + " ms.");
 
     }
 }

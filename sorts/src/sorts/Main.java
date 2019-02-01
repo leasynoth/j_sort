@@ -11,6 +11,24 @@ public class Main {
 
     private static void tests(){
 
+        int[] randData = generateData();
+
+        // bubbleSort
+
+        bubbleSort bs = new bubbleSort(randData);
+        bs.sorted();
+
+        randData = generateData();
+
+        // coctailSort
+
+        coctailSort cs = new coctailSort(randData);
+        cs.sorted();
+
+    }
+
+    private static int generateData()[]{
+
         // start profiling random data generating
         long start = System.nanoTime();
         // random data generating
@@ -23,14 +41,7 @@ public class Main {
         System.out.println("Time random data (10000 numbers) generating: " + String.format("%.3f", Float.valueOf(end - start)/1000000) + " ms.\n");
         // end profiling random data generating
 
-        // bubbleSort
-
-        bubbleSort bs = new bubbleSort(randomData);
-        bs.sorted();
-
-        // coctailSort
-
-
+        return randomData;
 
     }
 
