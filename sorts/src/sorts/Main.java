@@ -25,6 +25,13 @@ public class Main {
         coctailSort cs = new coctailSort(randData);
         cs.sorted();
 
+        randData = generateData();
+
+        // insertSort
+
+        insertionSort is = new insertionSort(randData);
+        is.sorted();
+
     }
 
     private static int generateData()[]{

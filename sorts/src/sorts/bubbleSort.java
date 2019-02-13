@@ -31,7 +31,7 @@ public class bubbleSort {
         // print initial data
         System.out.println("Initial data: \n");
 
-        for(int i=0; i<this.defaultData.length-1; i++){
+        for(int i=0; i<this.defaultData.length; i++){
 
             System.out.print(String.valueOf(this.defaultData[i]) + " ");
 
@@ -89,7 +89,7 @@ public class bubbleSort {
 
         // print sorted data
         System.out.println("\nSorted data: \n");
-        for (int i=0; i<this.defaultData.length-1; i++) {
+        for (int i=0; i<this.defaultData.length; i++) {
             System.out.print(String.valueOf(this.defaultData[i]) + " ");
         }
 
