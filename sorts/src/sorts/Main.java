@@ -32,6 +32,13 @@ public class Main {
         insertionSort is = new insertionSort(randData);
         is.sorted();
 
+        randData = generateData();
+
+        // gnomeSort
+
+        gnomeSort gs = new gnomeSort(randData, true);
+        gs.sorted();
+
     }
 
     private static int generateData()[]{

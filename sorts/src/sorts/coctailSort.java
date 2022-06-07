@@ -26,6 +26,8 @@ public class coctailSort {
 
         }
 
+        // start profiling for an algorithm of bubble sorting
+
         long start = System.nanoTime();
 
         int count = 0;
